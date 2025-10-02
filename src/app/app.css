@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8fafc;
+    color: #1a202c;
+    line-height: 1.6;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.top-section {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    gap: 2rem;
+}
+
+/* --- Paski progresu --- */
+.progress-section {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    position: relative;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.progress-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.progress-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.progress-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.progress-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.progress-icon.green {
+    background: #dcfce7;
+}
+
+.progress-icon.purple {
+    background: #f3e8ff;
+}
+
+.progress-icon.orange {
+    background: #ffedd5;
+}
+
+.progress-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.label-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.label-text.green {
+    color: #10b981;
+}
+
+.label-text.purple {
+    color: #8b5cf6;
+}
+
+.label-text.orange {
+    color: #f59e0b;
+}
+
+.progress-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.progress-value.green {
+    color: #10b981;
+}
+
+.progress-value.purple {
+    color: #8b5cf6;
+}
+
+.progress-value.orange {
+    color: #f59e0b;
+}
+
+.progress-bar-container {
+    position: relative;
+    height: 14px;
+    background: #e5e7eb;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 50px;
+    transition: width 0.8s ease-in-out;
+}
+
+.progress-bar.green {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.progress-bar.purple {
+    background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+}
+
+.progress-bar.orange {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+/* --- Kalendarz --- */
+.calendar-widget {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.calendar-weekdays {
+    display: grid;
+    font-family: 'Poppins', sans-serif;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    color: #6b7280;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+}
+
+.month-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    background: #f3f4f6;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #6b7280;
+    font-size: 1.3rem;
+}
+
+.nav-btn:hover {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.current-month {
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #1f2937;
+    font-size: 1.1rem;
+    min-width: 180px;
+    text-align: center;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-day {
+    width: 50px;
+    height: 50px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    margin: 0 auto;
+}
+
+.calendar-day:hover {
+    transform: scale(1.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-day.inactive {
+    color: #d1d5db;
+    background: #fafafa;
+}
+
+.calendar-day.active {
+    color: #374151;
+    background: #f3f4f6;
+}
+
+.calendar-day.completed {
+    background: #10b981;
+    color: white;
+}
+
+.calendar-day.today {
+    background: #3b82f6;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.widget-title {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.activity-indicator {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+}
+
+/* --- Wykresy --- */
+.chart-section {
+    grid-column: 1 / -1;
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.chart-header {
+    margin-bottom: 1.5rem;
+}
+
+.chart-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.chart-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.chart-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.chart-icon-btn {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chart-icon-btn:hover {
+    border-color: #8b5cf6;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+.chart-icon-btn.active {
+    border-color: #8b5cf6;
+    background: #f3e8ff;
+}
+
+.chart-icon-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.chart-with-axis {
+    flex: 1;
+    position: relative;
+    padding-left: 60px;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 1.5rem 1.5rem 60px;
+}
+
+.chart-container {
+    height: 300px;
+    padding-left: 90px;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    padding: 0 4rem;
+    border-bottom: 2px solid #cbd5e1;
+    border-left: 2px solid #cbd5e1;
+    background: white;
+    position: relative;
+    gap: 16px;
+}
+
+.chart-bar {
+    width: 28px;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    position: relative;
+    background: #8b5cf6;
+    transform-origin: bottom;
+    transition: height 0.8s ease-out;
+}
+
+/* Animacje */
+.chart-bar:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.chart-bar.animate {
+    animation: growUp 0.8s ease-out;
+}
+
+@keyframes growUp {
+    from {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.chart-bar:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.2rem;
+    padding: 0 3.5rem;
+    font-size: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.chart-labels span {
+    flex: 1;
+    text-align: center;
+}
+
+.y-axis {
+    position: absolute;
+    right: auto;
+    left: 0;
+    top: 1rem;
+    height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    color: #9ca3af;
+    font-weight: 500;
+    text-align: left;
+    padding-left: 10px;
+    min-width: 80px;
+}
+
+.y-axis span {
+    display: block;
+    white-space: nowrap;
+}
+
+/* Wskaźniki celów w kalendarzu */
+.goal-indicators {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3px;
+}
+
+.indicator {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.indicator.steps {
+    background: #10b981;
+}
+
+.indicator.fire {
+    background: #f59e0b;
+}
+
+.indicator.sleep {
+    background: #8b5cf6;
+}
+
+.calendar-day.inactive .goal-indicators {
+    display: none;
+}
+
+.calendar-day.today .indicator {
+    background: white;
+    opacity: 0.9;
+}
+
+/* --- Responsywność --- */
+@media (max-width: 1024px) {
+    .top-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animacje */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Podświetlenia buttonów wykresów */
+.chart-icon-btn.steps-btn:hover {
+    border-color: #10b981;
+    background: #dcfce7;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.chart-icon-btn.steps-btn.active {
+    border-color: #10b981;
+    background: #dcfce7;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.chart-icon-btn.fire-btn:hover {
+    border-color: #f59e0b;
+    background: #ffedd5;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.chart-icon-btn.fire-btn.active {
+    border-color: #f59e0b;
+    background: #ffedd5;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.chart-icon-btn.sleep-btn:hover {
+    border-color: #8b5cf6;
+    background: #f3e8ff;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.chart-icon-btn.sleep-btn.active {
+    border-color: #8b5cf6;
+    background: #f3e8ff;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
