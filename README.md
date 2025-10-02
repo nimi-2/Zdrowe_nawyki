@@ -3,9 +3,10 @@
 Projetk wtkonany przy użyciu [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
 
 Wykorzystane technologie:
-*Angular
-*TypeScriot
-*CSS
+
+* Angular
+* TypeScriot
+* CSS
 
 ## Do uruchomienia aplikacji
 
