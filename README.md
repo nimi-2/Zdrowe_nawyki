@@ -30,6 +30,11 @@ Aplikacja przedstawia dzienny proges czyności takich jak:
 * Głębokość snu
 
 Kalendarz przedstawia progres na podstawie kolorów przypisanych do każdej z czynności.
-Wykresy przedstawiają progres na przestrzeni doby.
+![Calendar](https://github.com/user-attachments/assets/24020138-280f-466a-b289-afd6fda1b6cb)
 
+Wykresy przedstawiają progres na przestrzeni doby.
+![Charts](https://github.com/user-attachments/assets/af7e1cc8-97c1-47d2-a76e-98177bcaf41c)
+
+
+Gify
 Aplikacja wykonana jako zadanie rekrutacyjne dla firmy Xelerit
